@@ -3,14 +3,13 @@ var router = express.Router();
 
 /* GET Admin */
 router.get("/", function (req, res, next) {
-  res.render("admin", { title: "Admin" });
-
+  res.render("admin", { title: "admin" });
   //   res.send("Hej från admin");
 });
 
-router.get/"admin", function(req, res) {
-    res.sendFile("public/admin.html", {root: __dirname});
-})
+router.get("/admin", function (req, res) {
+  //   res.sendFile("public/admin.html", { root: __dirname });
+});
 
 //INLOGG
 
