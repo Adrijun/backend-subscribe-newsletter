@@ -1,5 +1,5 @@
 var express = require("express");
-const { redirect } = require("express/lib/response");
+const { redirect, send } = require("express/lib/response");
 var router = express.Router();
 
 const admin = [
@@ -23,20 +23,22 @@ router.get("/", function (req, res, next) {
               </form>`;
 
   res.send(form);
-
-  // if username == admin && password == admin
-
-  // redirect to users
-
-  // else
-
-  // redirect to admin
 });
 
 router.post("/", function (req, res) {
-  //   let admin = { ...req.body };
-  res.send(console.log(req.body));
-  //   res.redirect("/users");
+  const obj = JSON.parse(JSON.stringify(req.body));
+
+  res.send(console.log(obj.admin));
+
+  if (obj.admin == "admin" && obj.password == "admin") {
+    console.log("OOK");
+    res.redirect("/users");
+  } else {
+    console.log("Inte OK");
+    res.redirect("/");
+  }
+
+  return;
 });
 
 router.get("/users", function (req, res, next) {
