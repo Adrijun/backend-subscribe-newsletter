@@ -34,7 +34,7 @@ router.post("/", function (req, res, next) {
     res.redirect("/users");
   } else {
     console.log("Inte OK");
-   res.redirect("/");
+   res.redirect("/admin");
   }
 
   return;
