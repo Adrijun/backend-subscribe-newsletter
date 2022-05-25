@@ -25,17 +25,16 @@ router.get("/", function (req, res, next) {
   res.send(form);
 });
 
-router.post("/", function (req, res) {
-  const obj = JSON.parse(JSON.stringify(req.body));
+router.post("/", function (req, res, next) {
 
-  res.send(console.log(obj.admin));
+  const obj = JSON.parse(JSON.stringify(req.body));
 
   if (obj.admin == "admin" && obj.password == "admin") {
     console.log("OOK");
     res.redirect("/users");
   } else {
     console.log("Inte OK");
-    res.redirect("/");
+   res.redirect("/");
   }
 
   return;
