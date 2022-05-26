@@ -14,11 +14,8 @@ router.get("/", function (req, res, next) {
   let form = `<form action="admin" method="post">
 
               <h2>Logga in</h2>
-
               <div><input type="text" name="admin"> admin</div>
-
               <div><input type="text" name="password"> password</div>
-
               <div><button type="submit">Spara</div>
               </form>`;
 

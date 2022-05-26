@@ -9,6 +9,19 @@ var usersRouter = require("./routes/users");
 var adminRouter = require("./routes/admin");
 
 var app = express();
+
+const MongoClient = require('mongodb').MongoClient;
+MongoClient.connect('mongodb://127.0.0.1:27017',{
+    useUnifiedTopology: true
+})
+.then(client => {
+    console.log('Du är uppkopplad till databasen');
+
+    // kolla om users är något annat
+    const db = client.db('mydbusers');
+    app.locals.db = db;
+})
+
 app.use(cors());
 
 app.use(logger("dev"));
