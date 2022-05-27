@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
     let printUsers = '<div><h2>Våra users</h2>'
 
     for (user in results){
-      printUsers += '<div>' + results[user].username + '<p>' + 'subscribed:' + '</p>' + results[user].subscribe + '</div>'
+      printUsers += '<div>' + results[user].username + '</div>'
     }
     printUsers += "</div>"
     res.send(printUsers);
@@ -25,7 +25,7 @@ router.post('/add', function(req,res){
   req.app.locals.db.collection('users').insertOne(req.body)
   .then(result => {
     console.log(result);
-    res.redirect('/show');
+    res.redirect('/');
   })
 
 });
