@@ -22,7 +22,8 @@ router.get("/", function (req, res, next) {
   res.send(form);
 });
 
-router.post("/", function (req, res, next) {
+
+router.post("/loggin", function (req, res, next) {
 
   const obj = JSON.parse(JSON.stringify(req.body));
 
